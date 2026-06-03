@@ -8,14 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var number: Int = 0
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack{
+            VStack {
+                Text("ボタンを押した回数↓")
+                Text("\(number)")
+            }
+            .frame(maxWidth: .infinity,maxHeight: .infinity)
+            .overlay(alignment: .bottomTrailing){
+                ButtonView(imageName: "plus") {
+                    number += 1
+                }
+            }
+            .overlay(alignment: .bottomLeading){
+                ButtonView(imageName: "minus") {
+                    number -= 1
+                }
+            }
+            .overlay(alignment: .bottom){
+                ButtonView(imageName: "arrow.trianglehead.counterclockwise") {
+                    number = 0
+                }
+            }
+            .padding()
+            .navigationTitle("カウンター")
         }
-        .padding()
     }
 }
 
