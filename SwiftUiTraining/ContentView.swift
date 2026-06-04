@@ -12,17 +12,17 @@ struct ContentView: View {
         VStack(alignment: .leading) {
             HStack {
                 Image(systemName: "globe")
-                    .foregroundColor(Color.red)
+                    .foregroundStyle(.red)
                     .imageScale(.large)
                 Text("Hello, world!")
                     .font(.largeTitle)
                     .fontWeight(.black)
-                    .foregroundColor(Color.green)
+                    .foregroundStyle(.green)
             }
             Text("Good evening, world!")
                 .font(.title)
                 .fontWeight(.black)
-                .foregroundColor(Color.red)
+                .foregroundStyle(.red)
         }
     }
 }
