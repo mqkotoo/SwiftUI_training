@@ -12,7 +12,7 @@ struct ContentView: View {
         HStack {
             Image(.gitHubMark)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .scaledToFit()
                 .frame(width: 44.0, height: 44.0)
             VStack(alignment: .leading) {
                 Text("Owner Name")
