@@ -1,13 +1,15 @@
 //
-//  ContentView.swift
+//  RepoRaw.swift
 //  SwiftUiTraining
 //
-//  Created by makoto.a.murakami on 2026/06/03.
+//  Created by makoto.a.murakami on 2026/06/08.
 //
 
+import Foundation
 import SwiftUI
 
-struct ContentView: View {
+struct RepoRow: View {
+    let repo: Repo
     var body: some View {
         HStack {
             Image(.gitHubMark)
@@ -15,16 +17,12 @@ struct ContentView: View {
                 .scaledToFit()
                 .frame(width: 44.0, height: 44.0)
             VStack(alignment: .leading) {
-                Text("Owner Name")
+                Text(repo.owner.name)
                     .font(.caption)
-                Text("Repository Name")
+                Text(repo.name)
                     .font(.body)
                     .fontWeight(.semibold)
             }
         }
     }
-}
-
-#Preview {
-    ContentView()
 }
