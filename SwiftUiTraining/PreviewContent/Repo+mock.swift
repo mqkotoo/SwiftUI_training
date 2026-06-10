@@ -10,7 +10,6 @@ extension Repo {
         id: 1,
         name: "Test Repo1",
         owner: .user1,
-        description: "This is a good code sample",
         stargazersCount: 10
     )
     static let mock2 = Repo(
@@ -31,7 +30,6 @@ extension Repo {
         id: 4,
         name: "Test Repo4",
         owner: .user4,
-        description: "This is a good code sample",
         stargazersCount: 10
     )
     static let mock5 = Repo(

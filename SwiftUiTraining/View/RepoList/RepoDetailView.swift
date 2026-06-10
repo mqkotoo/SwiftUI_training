@@ -26,7 +26,10 @@ struct RepoDetailView: View {
                 // Optional Binding を使って、descriptionがnilじゃない場合のみUIを表示する
                 if let description = repo.description {
                     Text(description)
-                        .padding(.top, 4) // .top などの方向と余白の長さを指定することができます
+                } else {
+                    Text("No description")
+                        .font(.caption)
+                        .foregroundStyle(.gray)
                 }
                 HStack {
                     Image(systemName: "star")
