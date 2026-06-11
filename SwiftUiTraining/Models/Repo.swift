@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct Repo: Identifiable {
-    let id: Int
-    let name: String
-    let owner: User
+struct Repo: Identifiable, Hashable {
+    var id: Int
+    var name: String
+    var owner: User
+    var description: String?
+    var stargazersCount: Int
 }
