@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RepoListView: View {
-    @State var store = ReposStore()
+    @State private var store = ReposStore()
     var body: some View {
         NavigationStack {
             if store.repos.isEmpty {
