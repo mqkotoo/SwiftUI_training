@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct RepoListView: View {
-    @State private var mockRepos: [Repo] = []
+    @State var store = ReposStore()
     var body: some View {
         NavigationStack {
-            if mockRepos.isEmpty {
+            if store.repos.isEmpty {
                 ProgressView("loading...")
             } else {
-                List(mockRepos) { repo in
+                List(store.repos) { repo in
                     NavigationLink(value: repo) {
                         RepoRow(repo: repo)
                     }
@@ -26,15 +26,18 @@ struct RepoListView: View {
             }
         }
         .task {
-            await loadRepos()
+            await store.loadRepos()
         }
     }
-    private func loadRepos() async {
-        // 1秒後にモックデータを読み込む
+}
+
+@Observable
+@MainActor
+class ReposStore {
+    private(set) var repos = [Repo]()
+    func loadRepos() async {
         try? await Task.sleep(for: .seconds(2))
-        mockRepos = [
-            .mock1, .mock2, .mock3, .mock4, .mock5
-        ]
+        repos = [.mock1, .mock2, .mock3, .mock4, .mock5]
     }
 }
 
