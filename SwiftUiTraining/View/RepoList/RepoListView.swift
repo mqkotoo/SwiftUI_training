@@ -25,17 +25,16 @@ struct RepoListView: View {
                 }
             }
         }
-        .onAppear {
-            loadRepos()
+        .task {
+            await loadRepos()
         }
     }
-    private func loadRepos() {
+    private func loadRepos() async {
         // 1秒後にモックデータを読み込む
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            mockRepos = [
-                .mock1, .mock2, .mock3, .mock4, .mock5
-            ]
-        }
+        try? await Task.sleep(for: .seconds(2))
+        mockRepos = [
+            .mock1, .mock2, .mock3, .mock4, .mock5
+        ]
     }
 }
 
