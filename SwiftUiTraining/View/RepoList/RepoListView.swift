@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct RepoListView: View {
-    @State private var store = ReposStore()
+    @Environment(ReposStore.self) private var store
+
     var body: some View {
         NavigationStack {
             if store.repos.isEmpty {
@@ -33,4 +34,5 @@ struct RepoListView: View {
 
 #Preview {
     RepoListView()
+        .environment(ReposStore())
 }
