@@ -12,11 +12,11 @@ import Foundation
 final class ReposStore {
     private(set) var repos = [Repo]()
     // decoderに変換設定付与
-    var decoder: JSONDecoder {
+    private let decoder: JSONDecoder = {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         return decoder
-    }
+    }()
 
     func loadRepos() async {
         let url = URL(string: "https://api.github.com/orgs/mixigroup/repos")!
